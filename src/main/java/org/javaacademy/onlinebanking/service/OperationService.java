@@ -5,7 +5,6 @@ import org.javaacademy.onlinebanking.entity.Operation;
 import org.javaacademy.onlinebanking.entity.User;
 import org.javaacademy.onlinebanking.repository.OperationRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -21,7 +20,7 @@ public class OperationService {
     return operationRepository.findAllTransactionByDeposit(numberDeposit);
   }
 
-  public List<Operation> findAllTransactionFromAllNumberDepositsByUser(User user) {
+  public List<Operation> findAllTransactionFromAllNumberAccountsByUser(User user) {
     return operationRepository.findAllTransactionFromAllNumberDepositsByUser(user);
   }
 }

@@ -1,0 +1,5 @@
+bank:
+  name: LLC Moneybank
+  partnerUrl: http://localhost:8001
+server:
+  port: 8082

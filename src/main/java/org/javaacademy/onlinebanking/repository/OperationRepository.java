@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class OperationRepository {
-  private final DepositRepository depositRepository;
+  private final AccountRepository accountRepository;
   private final Map<String, List<Operation>> transactions = new HashMap<>();
 
   public List<Operation> findAllTransactionByDeposit(String numberDeposit) {
@@ -22,18 +22,22 @@ public class OperationRepository {
 
   public void addOperation(Operation operation) {
     if (!transactions.isEmpty()) {
-      List<Operation> operations = transactions.get(operation.getNumberDeposit());
+      List<Operation> operations = transactions.get(operation.getNumberAccount());
       operations.add(operation);
-      transactions.put(operation.getNumberDeposit(), operations);
+      transactions.put(operation.getNumberAccount(), operations);
     } else {
       List<Operation> operations = new ArrayList<>();
       operations.add(operation);
-      transactions.put(operation.getNumberDeposit(), operations);
+      transactions.put(operation.getNumberAccount(), operations);
     }
   }
 
+  public Map<String, List<Operation>> getTransactions() {
+    return transactions;
+  }
+
   public List<Operation> findAllTransactionFromAllNumberDepositsByUser(User user) {
-    return depositRepository.findAllNumbersByUser(user)
+    return accountRepository.findAllNumbersByUser(user)
                .stream()
                .flatMap(numberDeposit -> transactions.get(numberDeposit).stream()
                .sorted(Comparator.comparing(Operation::getDate)))

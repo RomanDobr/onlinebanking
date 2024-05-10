@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DepositDtoRq {
+public class AccountDtoRq {
   private String token;
 }

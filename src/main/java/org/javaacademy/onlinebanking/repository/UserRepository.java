@@ -8,6 +8,7 @@ import java.util.*;
 @Component
 @NoArgsConstructor
 public class UserRepository {
+
   private final Map<String, User> users = new HashMap<>();
   private Integer pinCod = 1000;
 
@@ -16,6 +17,7 @@ public class UserRepository {
     users.put(user.getPhone(), user);
     return String.valueOf(pinCod);
   }
+
 
   public List<User> findAll() {
     return new ArrayList<>(users.values());
@@ -28,5 +30,9 @@ public class UserRepository {
   public User findByUuid(String uuid) {
     List<User> userList = new ArrayList<>(users.values());
     return userList.stream().filter(entity -> entity.getUuid().equals(uuid)).findFirst().orElseThrow();
+  }
+
+  public Map<String, User> getUsers() {
+    return users;
   }
 }

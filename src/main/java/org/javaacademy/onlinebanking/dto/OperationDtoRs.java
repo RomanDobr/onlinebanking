@@ -3,14 +3,16 @@ package org.javaacademy.onlinebanking.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.math.BigDecimal;
+
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OperationDtoRq {
-  private String token;
-  private BigDecimal value;
+public class OperationDtoRs {
+  private String uuid;
   private String numberAccount;
+  private String operation;
+  private LocalDateTime date;
   private String description;
 }

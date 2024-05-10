@@ -3,7 +3,6 @@ package org.javaacademy.onlinebanking.service;
 import lombok.RequiredArgsConstructor;
 import org.javaacademy.onlinebanking.repository.AuthRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

@@ -3,7 +3,6 @@ package org.javaacademy.onlinebanking.repository;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,8 +19,10 @@ public class AuthRepository {
   }
 
   public boolean checkRecordUser(String uuid, String pinCod) {
-    if (authUsers.get(uuid).equals(pinCod)) {
-      return true;
+    if (!authUsers.isEmpty()) {
+      if (authUsers.get(uuid).equals(pinCod)) {
+        return true;
+      }
     }
     return false;
   }
